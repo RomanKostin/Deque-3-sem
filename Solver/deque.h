@@ -223,7 +223,7 @@ namespace rut
 		*@brief функция для получения значения переднего узла дэка
 		*@return значение переднего узла
 		*/
-		int front()
+		T front()
 		{
 			if (IsEmpty())
 			{
@@ -236,7 +236,7 @@ namespace rut
 		*@brief функция для получения значения последнего узла дэка
 		*@return значение последнего узла
 		*/
-		int back()
+		T back()
 		{
 			if (IsEmpty())
 			{

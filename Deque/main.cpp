@@ -3,10 +3,10 @@
 
 int main()
 {
-	rut::Deque<double> deq, list{ 1,2,3 };
+	rut::Deque<double> deq, list{ 1.1,2,3 };
 	deq.push_front(7);
 	deq.push_front(4);
-	deq.push_front(44);
+	deq.push_front(44.32);
 	rut::Deque<double> copy = list;
 	rut::Deque<double> test(deq);
 	std::cout << list;

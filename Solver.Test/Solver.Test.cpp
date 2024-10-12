@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 #include "..\Solver\Deque.h"
-
+#include "..\TestClass\Angle.h"
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace SolverTest
@@ -99,7 +99,7 @@ namespace SolverTest
 		}
 		
 		
-		TEST_METHOD(EmptyDoubleDeque_Success)
+		TEST_METHOD(EmptyDeque_Success)
 		{
 			rut::Deque<double> deq;
 			Assert::IsTrue(deq.IsEmpty());

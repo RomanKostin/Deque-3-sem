@@ -4,6 +4,14 @@
 
 namespace rut
 {
+	template <typename T> class Deque;
+
+	/*
+	*@brief оператор "<<" для класса дэк
+	*/
+	template <typename T>
+	std::ostream& operator << (std::ostream& output, const rut::Deque<T>& deque);
+
 	template <typename T>
 	class Deque
 	{

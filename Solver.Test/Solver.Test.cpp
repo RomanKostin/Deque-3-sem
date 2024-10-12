@@ -99,92 +99,118 @@ namespace SolverTest
 		}
 		
 		
-		TEST_METHOD(EmptyDeque_Success)
+		TEST_METHOD(EmptyAngleDeque_Success)
 		{
-			rut::Deque<double> deq;
+			rut::Deque<Angle::Angle> deq;
 			Assert::IsTrue(deq.IsEmpty());
 		}
-		TEST_METHOD(PushFrontOneTimeDouble_ValidData_Success)
+		TEST_METHOD(PushFrontOneTimeAngle_ValidData_Success)
 		{
-			rut::Deque<double> deq;
-			deq.push_front(1.23);
-			Assert::AreEqual(deq.front(), 1.23);
+			rut::Deque<Angle::Angle> deq;
+			Angle::Angle value(42,42,42);
+			deq.push_front(value);
+			Assert::AreEqual(deq.front(), value);
 		}
-		TEST_METHOD(PushFrontFewTimesDouble_ValidData_Success)
+		TEST_METHOD(PushFrontFewTimesAngle_ValidData_Success)
 		{
-			rut::Deque<double> deq;
-			deq.push_front(1.23);
-			deq.push_front(2.43);
-			Assert::AreEqual(deq.front(), 2.43);
+			rut::Deque<Angle::Angle> deq;
+			Angle::Angle value1(42, 42, 42);
+			Angle::Angle value2(11, 22, 33);
+			deq.push_front(value1);
+			deq.push_front(value2);
+			Assert::AreEqual(deq.front(), value2);
 		}
-		TEST_METHOD(PushBackOneTimeDouble_ValidData_Success)
+		TEST_METHOD(PushBackOneTimeAngle_ValidData_Success)
 		{
-			rut::Deque<double> deq;
-			deq.push_back(1.23);
-			Assert::AreEqual(deq.back(), 1.23);
+			rut::Deque<Angle::Angle> deq;
+			Angle::Angle value(42, 42, 42);
+			deq.push_back(value);
+			Assert::AreEqual(deq.back(), value);
 		}
-		TEST_METHOD(PushBackFewTimesDouble_ValidData_Success)
+		TEST_METHOD(PushBackFewTimesAngle_ValidData_Success)
 		{
-			rut::Deque<double> deq;
-			deq.push_back(1.23);
-			deq.push_back(2.43);
-			Assert::AreEqual(deq.back(), 2.43);
+			rut::Deque<Angle::Angle> deq;
+			Angle::Angle value1(42, 42, 42);
+			Angle::Angle value2(11, 22, 33);
+			deq.push_back(value1);
+			deq.push_back(value2);
+			Assert::AreEqual(deq.back(), value2);
 		}
-		TEST_METHOD(PushBackAndPushFrontDouble_ValidData_Success)
+		TEST_METHOD(PushBackAndPushFrontAngle_ValidData_Success)
 		{
-			rut::Deque<double> deq;
-			deq.push_front(1.23);
-			deq.push_back(4.56);
-			Assert::AreEqual(deq.front(), 1.23);
-			Assert::AreEqual(deq.back(), 4.56);
+			rut::Deque<Angle::Angle> deq;
+			Angle::Angle value1(42, 42, 42);
+			Angle::Angle value2(11, 22, 33);
+			deq.push_front(value1);
+			deq.push_back(value2);
+			Assert::AreEqual(deq.front(), value1);
+			Assert::AreEqual(deq.back(), value2);
 		}
-		TEST_METHOD(PopFrontDouble_ValidData_Success)
+		TEST_METHOD(PopFrontAngle_ValidData_Success)
 		{
-			rut::Deque deq{ 1.23,2.43,3.33 };
+			Angle::Angle value1(42, 42, 42);
+			Angle::Angle value2(11, 22, 33);
+			Angle::Angle value3(12, 34, 56);
+			rut::Deque deq{ value1,value2,value3 };
 			deq.pop_front();
-			Assert::AreEqual(deq.front(), 2.43);
-			Assert::AreEqual(deq.back(), 3.33);
+			Assert::AreEqual(deq.front(), value2);
+			Assert::AreEqual(deq.back(), value3);
 		}
-		TEST_METHOD(PopBackDouble_ValidData_Success)
+		TEST_METHOD(PopBackAngle_ValidData_Success)
 		{
-			rut::Deque deq{ 1.23,2.43,3.33 };
+			Angle::Angle value1(42, 42, 42);
+			Angle::Angle value2(11, 22, 33);
+			Angle::Angle value3(12, 34, 56);
+			rut::Deque deq{ value1,value2,value3 };
 			deq.pop_back();
-			Assert::AreEqual(deq.front(), 1.23);
-			Assert::AreEqual(deq.back(), 2.43);
+			Assert::AreEqual(deq.front(), value1);
+			Assert::AreEqual(deq.back(), value2);
 		}
-		TEST_METHOD(EqualDequesConstructionDouble_ValidData_Success)
+		TEST_METHOD(EqualDequesConstructionAngle_ValidData_Success)
 		{
-			rut::Deque deq1{ 1.23,2.43,3.33 }, deq2(deq1);
+			Angle::Angle value1(42, 42, 42);
+			Angle::Angle value2(11, 22, 33);
+			Angle::Angle value3(12, 34, 56);
+			rut::Deque deq1{ value1,value2,value3 }, deq2(deq1);
 			Assert::AreEqual(deq1.front(), deq2.front());
 			Assert::AreEqual(deq1.back(), deq2.back());
 			deq1.pop_front();
 			deq2.pop_front();
 			Assert::AreEqual(deq1.front(), deq2.front());
 		}
-		TEST_METHOD(EqualDequesByOperatorDouble_ValidData_Success)
+		TEST_METHOD(EqualDequesByOperatorAngle_ValidData_Success)
 		{
-			rut::Deque deq1{ 1.23,2.43,3.33 }, deq2 = deq1;
+			Angle::Angle value1(42, 42, 42);
+			Angle::Angle value2(11, 22, 33);
+			Angle::Angle value3(12, 34, 56);
+			rut::Deque deq1{ value1,value2,value3 }, deq2 = deq1;
 			Assert::AreEqual(deq1.front(), deq2.front());
 			Assert::AreEqual(deq1.back(), deq2.back());
 			deq1.pop_front();
 			deq2.pop_front();
 			Assert::AreEqual(deq1.front(), deq2.front());
 		}
-		TEST_METHOD(MoveConstructorDouble_ValidData_Success)
+		TEST_METHOD(MoveConstructorAngle_ValidData_Success)
 		{
-			rut::Deque deq1{ 1.23,2.43,3.33 }, deq2(std::move(deq1));
-			Assert::AreEqual(deq2.front(), 1.23);
+			Angle::Angle value1(42, 42, 42);
+			Angle::Angle value2(11, 22, 33);
+			Angle::Angle value3(12, 34, 56);
+			rut::Deque deq1{ value1,value2,value3 }, deq2(std::move(deq1));
+			Assert::AreEqual(deq2.front(),value1);
 			deq2.pop_front();
-			Assert::AreEqual(deq2.front(), 2.43);
-			Assert::AreEqual(deq2.back(), 3.33);
+			Assert::AreEqual(deq2.front(), value2);
+			Assert::AreEqual(deq2.back(), value3);
 		}
-		TEST_METHOD(OperatorMoveDouble_ValidData_Success)
+		TEST_METHOD(OperatorMoveAngle_ValidData_Success)
 		{
-			rut::Deque deq1{ 1.23,2.43,3.33 }, deq2 = std::move(deq1);
-			Assert::AreEqual(deq2.front(), 1.23);
+			Angle::Angle value1(42, 42, 42);
+			Angle::Angle value2(11, 22, 33);
+			Angle::Angle value3(12, 34, 56);
+			rut::Deque deq1{ value1,value2,value3 } , deq2 = std::move(deq1);
+			Assert::AreEqual(deq2.front(), value1);
 			deq2.pop_front();
-			Assert::AreEqual(deq2.front(), 2.43);
-			Assert::AreEqual(deq2.back(), 3.33);
+			Assert::AreEqual(deq2.front(), value2);
+			Assert::AreEqual(deq2.back(), value3);
 		}
 
 		TEST_METHOD(EmptyStringDeque_Success)

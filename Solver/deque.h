@@ -4,12 +4,28 @@
 
 namespace rut
 {
+	template <typename T> class Deque;
+
+	/*
+	*@brief Оператор "<<" для класса дэк
+	*@tparam T Тип хранимых данных при помощи дэка
+	*@param output Поток вывода
+	*@param deque Дэк
+	*@return Изменённый поток вывода
+	*/
+	template <typename T>
+	std::ostream& operator << (std::ostream& output, const rut::Deque<T>& deque);
+	
+	/*
+	*@brief Класс дэк
+	*@tparam T Тип хранимых данных при помощи дэка
+	*/
 	template <typename T>
 	class Deque
 	{
 	private:
 		/*
-		*@brief структура узла
+		*@brief Структура узла
 		*/
 		struct Node
 		{
@@ -20,101 +36,101 @@ namespace rut
 		};
 
 		/*
-		*@brief узел головы дэка
+		*@brief Узел головы дэка
 		*/
 		Node* head;
 
 		/*
-		*@brief узел хвоста дэка
+		*@brief Узел хвоста дэка
 		*/
 		Node* tail;
 
 		/*
-		*@brief размер дэка
+		*@brief Размер дэка
 		*/
 		size_t size;
 
 	public:
 
 		/*
-		*@brief конструктор по умолчанию
+		*@brief Инициализирует объект типа ::Deque<T>
 		*/
 		Deque();
 
 		/*
-		*@brief конструктор для списка
-		*@param list - список
+		*@brief Инициализирует объект типа ::Deque<T> из списка
+		*@param list Список из объектов типа T
 		*/
 		Deque(std::initializer_list<T> list);
 
 		/*
-		*@brief конструктор копирования
-		*@param other - другой дэк
+		*@brief Конструктор копирования объекта типа ::Deque<T>
+		*@param other Другой дэк
 		*/
 		Deque(const Deque& other);
 
 		/*
-		*@brief конструктор перемещения
-		*@param other - другой дэк
+		*@brief Конструктор перемещения объекта типа ::Deque<T>
+		*@param other Другой дэк
 		*/
 		Deque(Deque&& other) noexcept;
 
 		/*
-		*@brief деструктор дэка
+		*@brief Деструктор. Разрушает объекта типа ::Deque<T>
 		*/
 		~Deque();
 
 		/*
-		*@brief оператор присваивания для дэка
-		*@param other - другой дэк
-		*@return возвращает дэк, равный other
+		*@brief Оператор присваивания для дэка типа ::Deque<T>
+		*@param other Другой дэк
+		*@return Возвращает дэк, равный other
 		*/
 		Deque& operator=(const Deque& other);
 
 		/*
-		*@brief оператор присваивания перемещением для дэка
-		*@param other - другой дэк
-		*@return возвращает дэк, равный other
+		*@brief Оператор присваивания перемещением для дэка типа ::Deque<T>
+		*@param other Другой дэк
+		*@return Возвращает дэк, равный other
 		*/
 		Deque& operator = (Deque&& other) noexcept;
 
 		/*
-		*@brief функция удаления переднего узла дэка
+		*@brief Функция удаления переднего узла дэка
 		*/
 		void pop_front();
 
 		/*
-		*@brief функция удаления последнего узла дэка
+		*@brief Функция удаления последнего узла дэка
 		*/
 		void pop_back();
 		
 		/*
-		*@brief функция добавления узла спереди дэка
-		*@param value - значение, которое будет принимать новый узел
+		*@brief Функция добавления узла спереди дэка
+		*@param value Значение, которое будет принимать новый узел типа Т
 		*/
 		void push_front(const T value);
 
 		/*
-		*@brief функция добавления узла в конце дэка
-		*@param value - значение, которое будет принимать новый узел
+		*@brief Функция добавления узла в конце дэка
+		*@param value Значение, которое будет принимать новый узел
 		*/
 		void push_back(const T value);
 
 		/*
-		*@brief функция для получения значения переднего узла дэка
-		*@return значение переднего узла
+		*@brief Функция для получения значения переднего узла дэка
+		*@return Значение переднего узла типа T
 		*/
 		T front();
 
 		/*
-		*@brief функция для получения значения последнего узла дэка
-		*@return значение последнего узла
+		*@brief Функция для получения значения последнего узла дэка
+		*@return Значение последнего узла типа T
 		*/
 		T back();
 		
 		/*
-		*@brief функция проверки на пустоту дэка
-		*@return true если дэк пустой, иначе false
+		*@brief Функция проверки на пустоту дэка типа ::Deque<T>
+		*@return true если дэк не содержит каких-либо элементов, иначе false
 		*/
 		bool IsEmpty();
 	};

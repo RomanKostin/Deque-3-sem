@@ -45,7 +45,7 @@ namespace Angle
 		/*
 		*@brief конструктор копирования
 		*/
-		Angle(Angle& A) = default;
+		Angle(const Angle& A) = default;
 
 		/*
 		*@brief оператор "=" для класса Angle
